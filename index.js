@@ -32,7 +32,7 @@ console.log('örnek görev:', ilkiniDon(['as','sa'],function(metin){return metin
   1. skor1 ve skor2 arasındaki fark nedir?
   
   2. Hangisi bir closure kullanmaktadır? Nasıl tarif edebilirsin? (yarınki derste öğreneceksin :) )
-  
+  skor1 closure kullanıyor.
   3. Hangi durumda skor1 tercih edilebilir? Hangi durumda skor2 daha mantıklıdır?
 */
 
@@ -64,10 +64,11 @@ Aşağıdaki takimSkoru() fonksiyonununda aşağıdakileri yapınız:
 Not: Bu fonskiyon, aşağıdaki diğer görevler için de bir callback fonksiyonu olarak da kullanılacak
 */
 
-function takimSkoru(/*Kodunuzu buraya yazınız*/){
-    /*Kodunuzu buraya yazınız*/
+function takimSkoru(){
+  let skor = Math.round(Math.random() * 15 + 10);
+  return skor;
 }
-
+console.log('--> Görev 2: ', takimSkoru());
 
 
 
@@ -86,14 +87,20 @@ Aşağıdaki macSonucu() fonksiyonununda aşağıdakileri yapınız:
 }
 */ 
 
-function macSonucu(/*Kodunuzu buraya yazınız*/){
-  /*Kodunuzu buraya yazınız*/
+function macSonucu(skorUretici, period) {
+  let evSahibi = 0;
+  let konukTakim = 0;
+  for (let i = 0; i < period; i++) {
+    skorUretici = takimSkoru();
+    evSahibi += skorUretici;
+    skorUretici = takimSkoru();
+    konukTakim += skorUretici;
+  }
+  console.log(period);
+  return { EvSahibi: evSahibi, KonukTakim: konukTakim };
 }
 
-
-
-
-
+console.log('--> Görev 3: ', macSonucu(takimSkoru, 4));
 
 /* Zorlayıcı Görev 4: periyotSkoru()
 Aşağıdaki periyotSkoru() fonksiyonununda aşağıdakileri yapınız:
@@ -108,12 +115,16 @@ Aşağıdaki periyotSkoru() fonksiyonununda aşağıdakileri yapınız:
 }
   */
 
-
-function periyotSkoru(/*Kodunuzu buraya yazınız*/) {
-  /*Kodunuzu buraya yazınız*/
-
+function periyotSkoru(ceyrekSkorUretici) {
+  let evSahibi = 0;
+  let konukTakim = 0;
+  ceyrekSkorUretici = takimSkoru();
+  evSahibi += ceyrekSkorUretici;
+  ceyrekSkorUretici = takimSkoru();
+  konukTakim += ceyrekSkorUretici;
+  return { EvSahibi: evSahibi, KonukTakim: konukTakim };
 }
-
+console.log('--> Görev 4: ', periyotSkoru());
 
 /* Zorlayıcı Görev 5: skorTabelasi() 
 Aşağıdaki skorTabelasi() fonksiyonunu kullanarak aşağıdakileri yapınız:
