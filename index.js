@@ -96,7 +96,6 @@ function macSonucu(skorUretici, period) {
     skorUretici = takimSkoru();
     konukTakim += skorUretici;
   }
-  console.log(period);
   return { EvSahibi: evSahibi, KonukTakim: konukTakim };
 }
 
@@ -125,7 +124,7 @@ function periyotSkoru(ceyrekSkorUretici) {
   return { EvSahibi: evSahibi, KonukTakim: konukTakim };
 }
 console.log('--> Görev 4: ', periyotSkoru());
-
+console.log('##### 5. soruya geçiyoruz #####');
 /* Zorlayıcı Görev 5: skorTabelasi() 
 Aşağıdaki skorTabelasi() fonksiyonunu kullanarak aşağıdakileri yapınız:
   1. İlk parametre olarak Görev 4'te oluşturduğumuz 'periyotSkoru'nu bir değişken olarak almalı
@@ -157,10 +156,50 @@ MAÇ UZAR ise skorTabelasi(periyotSkoru,takimSkoru,4)
 ] */
 // NOTE: Bununla ilgili bir test yoktur. Eğer logladığınız sonuçlar yukarıdakine benziyor ise tmamlandı sayabilirsiniz.
 
-function skorTabelasi(/*Kodunuzu buraya yazınız*/) {
-  /*Kodunuzu buraya yazınız*/
-}
+function skorTabelasi(ceyrekSkorUretici, takimSkoruUretici, period) {
+  takimSkoruUretici = takimSkoru();
+  let evSahibi = 0;
+  let konukTakim = 0;
+  for (let i = 0; i < period; i++) {
+    if (evSahibi !== konukTakim) {
+      if (i === 0) {
+        ceyrekSkorUretici = takimSkoru();
+        evSahibi += ceyrekSkorUretici;
+        ceyrekSkorUretici = takimSkoru();
+        konukTakim += ceyrekSkorUretici;
+        console.log(`1. Periyot: Ev Sahibi ${evSahibi} - Konuk Takım ${konukTakim}`)
+      } else if (i === 1) {
+        ceyrekSkorUretici = takimSkoru();
+        evSahibi += ceyrekSkorUretici;
+        ceyrekSkorUretici = takimSkoru();
+        konukTakim += ceyrekSkorUretici;
+        console.log(`2. Periyot: Ev Sahibi ${evSahibi} - Konuk Takım ${konukTakim}`)
+      } else if (i === 2) {
+        ceyrekSkorUretici = takimSkoru();
+        evSahibi += ceyrekSkorUretici;
+        ceyrekSkorUretici = takimSkoru();
+        konukTakim += ceyrekSkorUretici;
+        console.log(`3. Periyot: Ev Sahibi ${evSahibi} - Konuk Takım ${konukTakim}`)
+      } else if (i === 2) {
+        ceyrekSkorUretici = takimSkoru();
+        evSahibi += ceyrekSkorUretici;
+        ceyrekSkorUretici = takimSkoru();
+        konukTakim += ceyrekSkorUretici;
+        console.log(`3. Periyot: Ev Sahibi ${evSahibi} - Konuk Takım ${konukTakim}`)
+      } else if (i === 3) {
+        ceyrekSkorUretici = takimSkoru();
+        evSahibi += ceyrekSkorUretici;
+        ceyrekSkorUretici = takimSkoru();
+        konukTakim += ceyrekSkorUretici;
+        console.log(`4. Periyot: Ev Sahibi ${evSahibi} - Konuk Takım ${konukTakim}`)
+      }
+    } else {
+      console.log(`Maç Sonucu: Ev Sahibi ${evSahibi} - Konuk Takım ${konukTakim}`)
+    }
+    }
+  }
 
+console.log(skorTabelasi(periyotSkoru, takimSkoru, 4));
 
 
 
